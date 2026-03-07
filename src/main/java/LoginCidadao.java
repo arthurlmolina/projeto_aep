@@ -1,14 +1,14 @@
-public class LoginUsuario {
+public class LoginCidadao {
     private String nome;
     private String cpf;
     private String senha;
-
-
-    public LoginUsuario(String nome, String cpf, String senha) {
+    //----------------------------------------------------------------------------
+    public LoginCidadao(String nome, String cpf, String senha) {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
     }
+    //----------------------------------------------------------------------------
 
     public String getNome() {
         return nome;
@@ -33,5 +33,9 @@ public class LoginUsuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    //----------------------------------------------------------------------------
+
+
+
 }
 
