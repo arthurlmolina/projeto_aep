@@ -27,7 +27,6 @@ public class Main {
                 int menuCidadao = -1;
 
                 while(menuCidadao != 0){
-
                     System.out.println("\nMENU DO CIDADÃO");
                     System.out.println("1 - Criar protocolo");
                     System.out.println("2 - Listar protocolos");
@@ -38,13 +37,10 @@ public class Main {
                     if(menuCidadao == 1){
                         protocoloService.criarProtocolo(listaProtocolo);
                     }
-
                     if(menuCidadao == 2){
                         protocoloService.listarProtocolos(listaProtocolo);
                     }
-
                 }
-
                 System.out.println("Logout realizado.\n");
             }
 
@@ -59,7 +55,6 @@ public class Main {
                 int menuFuncionario = -1;
 
                 while(menuFuncionario != 0){
-
                     System.out.println("\nMENU DO FUNCIONÁRIO");
                     System.out.println("1 - Listar protocolos");
                     System.out.println("0 - Logout");
@@ -69,7 +64,6 @@ public class Main {
                     if(menuFuncionario == 1){
                         protocoloService.listarProtocolos(listaProtocolo);
                     }
-
                 }
 
                 System.out.println("Logout realizado.\n");
@@ -79,7 +73,6 @@ public class Main {
             if(retorno == 4){
                 System.out.println("Login de funcionário inválido.");
             }
-
             // CADASTRO REALIZADO
             if(retorno == 5){
                 System.out.println("Cadastro realizado! Agora faça login.");
