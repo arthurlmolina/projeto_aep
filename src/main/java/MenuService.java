@@ -12,6 +12,7 @@ public class MenuService {
             System.out.println("Escolha seu tipo de login:");
             System.out.println("1 - Cidadão");
             System.out.println("2 - Funcionário");
+            System.out.println("Digite a opção desejada: ");
 
             opcao = scanner.nextInt();
 
@@ -27,6 +28,7 @@ public class MenuService {
 
             System.out.println("1 - Registrar");
             System.out.println("2 - Login");
+            System.out.println("Digite a opção desejada: ");
 
             opcao = scanner.nextInt();
         }

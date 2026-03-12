@@ -46,9 +46,7 @@ public class ProtocoloService {
                 bairro,
                 opcional
         );
-
         listaProtocolo.add(novo);
-
         System.out.println("Protocolo criado com sucesso!");
     }
 
@@ -60,9 +58,7 @@ public class ProtocoloService {
         }
 
         for(Protocolo p : listaProtocolo){
-
             System.out.println("---------------------------");
-
             System.out.println("Tipo: " + p.getTipo());
             System.out.println("Descrição: " + p.getDescricao());
             System.out.println("CEP: " + p.getCep());

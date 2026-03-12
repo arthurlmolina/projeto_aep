@@ -13,7 +13,6 @@ public class Utilitario {
 
         // CIDADÃO
         if(tipoUsuario == 1){
-
             if(acao == 1){
                 cidadao.registrar(listaCidadao);
                 return 5; // cadastro realizado
@@ -26,11 +25,8 @@ public class Utilitario {
                 }else{
                     return 2;
                 }
-
             }
-
         }
-
         // FUNCIONÁRIO
         if(tipoUsuario == 2){
 
@@ -38,9 +34,7 @@ public class Utilitario {
                 funcionario.registrar(listaFuncionario);
                 return 5;
             }
-
             if(acao == 2){
-
                 if(funcionario.login(listaFuncionario)){
                     return 3;
                 }else{
@@ -50,7 +44,6 @@ public class Utilitario {
             }
 
         }
-
         return -1;
     }
 }

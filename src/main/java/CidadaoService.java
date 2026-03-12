@@ -34,7 +34,6 @@ public class CidadaoService {
         String senha = scanner.next();
 
         for(LoginCidadao c : lista){
-
             if(cpf.equals(c.getCpf()) && senha.equals(c.getSenha())){
                 return true;
             }

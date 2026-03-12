@@ -33,7 +33,6 @@ public class FuncionarioService {
         String senha = scanner.nextLine();
 
         for(LoginFuncionario f : lista){
-
             if(matricula.equals(f.getMatricula()) && senha.equals(f.getSenha())){
                 return true;
             }
