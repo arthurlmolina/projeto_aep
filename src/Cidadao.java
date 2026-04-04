@@ -1,5 +1,3 @@
-import jdk.jshell.execution.Util;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -127,17 +125,13 @@ public class Cidadao {
                 break;
             case 3:
                 Utilitario.login();
+                break;
+            default:
+                System.out.println("Opção inválida, tente novamente");
+                menuCidadaoLogado();
+                break;
         }
-        if(optionCidadaoLogado == 1){
-            solicitarServico();
-        } else if (optionCidadaoLogado == 2) {
-            verificarStatusDoProcolo();
-        } else if (optionCidadaoLogado == 3) {
-            Utilitario.login();
-        } else {
-            System.out.println("Opção inválida, tente novamente");
-            menuCidadaoLogado();
-        }
+
     }
 
     public static void solicitarServico(){
@@ -166,6 +160,7 @@ public class Cidadao {
         if (optionTipoDeSolicitacao == 8){
             menuCidadaoLogado();
         }
+        scanner.nextLine(); // limpar o buffer
         System.out.println("\nDescrição da solicitação: ");
         descricao = scanner.nextLine();
         System.out.println("Preencha o endereço do local da solicitação");
