@@ -1,8 +1,8 @@
-public class LoginFuncionario {
+public class Funcionario {
     private String matricula;
     private String senha;
     //----------------------------------------------------------------------------
-    public LoginFuncionario(String matricula, String senha) {
+    public Funcionario(String matricula, String senha) {
         this.matricula = matricula;
         this.senha = senha;
     }

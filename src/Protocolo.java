@@ -1,22 +1,41 @@
 public class Protocolo {
+    private int numeroProtocolo;
     private int tipo;
     private String descricao;
     //localização
     private String cep;
-    private String endereco;
+    private String rua;
     private int numero;
     private String bairro;
-    private String opcional;
+    private String complemento;
+    private int status;
+//   1 - aberto
+//   2 - triagem
+//   3 - em execução
+//   4 - resolvido
+//   5 - encerrado
 
     //----------------------------------------------------------------------------
-    public Protocolo(int tipo, String descricao, String cep, String endereco, int numero, String bairro, String opcional) {
+
+
+    public Protocolo(int numeroProtocolo, int tipo, String descricao, String cep, String rua, int numero, String bairro, String complemento) {
+        this.numeroProtocolo = numeroProtocolo;
         this.tipo = tipo;
         this.descricao = descricao;
         this.cep = cep;
-        this.endereco = endereco;
+        this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
-        this.opcional = opcional;
+        this.complemento = complemento;
+        this.status=1;
+    }
+
+    public int getNumeroProtocolo() {
+        return numeroProtocolo;
+    }
+
+    public void setNumeroProtocolo(int numeroProtocolo) {
+        this.numeroProtocolo = numeroProtocolo;
     }
 
     public int getTipo() {
@@ -43,12 +62,12 @@ public class Protocolo {
         this.cep = cep;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getRua() {
+        return rua;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
     public int getNumero() {
@@ -67,11 +86,19 @@ public class Protocolo {
         this.bairro = bairro;
     }
 
-    public String getOpcional() {
-        return opcional;
+    public String getComplemento() {
+        return complemento;
     }
 
-    public void setOpcional(String opcional) {
-        this.opcional = opcional;
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
