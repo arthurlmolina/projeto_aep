@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
+import jdk.jshell.execution.Util;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -41,7 +41,7 @@ public class Cidadao {
     }
     //----------------------------------------------------------------------------
 
-    public void loginCidadao() {
+    public static void loginCidadao() {
         Scanner scanner = new Scanner(System.in);
         int optionMenuCidadao;
         System.out.println("1 - Registrar");
@@ -58,7 +58,7 @@ public class Cidadao {
         }
     }
 
-    public void registrarCidadao() {
+    public static void registrarCidadao() {
         Utilitario.pularLinhas();
         Scanner scanner = new Scanner(System.in);
         String nome;
@@ -67,9 +67,10 @@ public class Cidadao {
         System.out.println("Registrar cidadão");
         System.out.print("Nome: ");
         nome = scanner.nextLine();
-        System.out.print("Cpf: ");
+        System.out.print("Cpf (somente números): ");
         cpf = scanner.nextLine();
-        System.out.print("Senha");
+        //cpf = Utilitario.arrumarCpf(cpf);
+        System.out.print("Senha: ");
         senha = scanner.nextLine();
         Cidadao newCidadao = new Cidadao(nome, cpf, senha);
         DBSingleton.getDBSingleton().getCidadaoList().add(newCidadao);
@@ -79,39 +80,40 @@ public class Cidadao {
         loginCidadao();
     }
 
-    public void logarCidadao() {
+    public static void logarCidadao() {
         Utilitario.pularLinhas();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Login do cidadão");
         String cpf;
         String senha;
         boolean achou = false;
-        System.out.print("Cpf: ");
+        System.out.print("Cpf (somente números): ");
         cpf = scanner.nextLine();
         System.out.print("Senha: ");
         senha = scanner.nextLine();
         for (Cidadao cidadao : DBSingleton.getDBSingleton().getCidadaoList()) {
-            if (cidadao.getCpf() == cpf && cidadao.getSenha() == senha) {
-                System.out.println("Login realizado com sucesso");
+            if (cidadao.getCpf().equals(cpf) && cidadao.getSenha().equals(senha)) {
+                System.out.println("Login realizado com sucesso!\n");
                 achou = true;
                 cidadaoLogado(cidadao.getNome());
             }
         }
         if (achou == false) {
             System.out.println("Cadastro não encotrado");
+            Utilitario.pularLinhas();
             loginCidadao();
         }
     }
 
-    public void cidadaoLogado(String nome){
-        System.out.println("Bem vindo(a)"+nome+"!");
+    public static void cidadaoLogado(String nome){
+        System.out.println("Bem vindo(a) "+nome+"!");
         menuCidadaoLogado();
     }
 
-    public void menuCidadaoLogado(){
+    public static void menuCidadaoLogado(){
         int optionCidadaoLogado;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("1 - Solicitar serviço");
+        System.out.println("\n1 - Solicitar serviço");
         System.out.println("2 - Verificar status do protocolo");
         System.out.println("3 - Voltar ao menu inicial");
         System.out.print("Escolha uma opção: ");
@@ -130,12 +132,16 @@ public class Cidadao {
             solicitarServico();
         } else if (optionCidadaoLogado == 2) {
             verificarStatusDoProcolo();
-        } else if ( ) {
-
+        } else if (optionCidadaoLogado == 3) {
+            Utilitario.login();
+        } else {
+            System.out.println("Opção inválida, tente novamente");
+            menuCidadaoLogado();
         }
     }
 
-    public void solicitarServico(){
+    public static void solicitarServico(){
+        Utilitario.pularLinhas();
         Random geradorDeNumeroDeProtocolo = new Random();
         int numeroProtocolo = geradorDeNumeroDeProtocolo.nextInt(1000000000);
         int optionTipoDeSolicitacao;
@@ -154,9 +160,13 @@ public class Cidadao {
         System.out.println("5 - Saúde");
         System.out.println("6 - Segurança escolar");
         System.out.println("7 - Coleta de lixo");
-        System.out.print("Escolha uma opção:");
+        System.out.println("8 - Voltar");
+        System.out.print("Escolha uma opção: ");
         optionTipoDeSolicitacao = scanner.nextInt();
-        System.out.println("Descrição da solicitação: ");
+        if (optionTipoDeSolicitacao == 8){
+            menuCidadaoLogado();
+        }
+        System.out.println("\nDescrição da solicitação: ");
         descricao = scanner.nextLine();
         System.out.println("Preencha o endereço do local da solicitação");
         System.out.print("Cep: ");
@@ -165,6 +175,7 @@ public class Cidadao {
         rua = scanner.nextLine();
         System.out.print("Número: ");
         numero = scanner.nextInt();
+        scanner.nextLine(); //limpar o buffer
         System.out.print("Bairro: ");
         bairro = scanner.nextLine();
         System.out.print("Complemento: ");
@@ -172,11 +183,13 @@ public class Cidadao {
 
         Protocolo newProtocolo = new Protocolo(numeroProtocolo,optionTipoDeSolicitacao,descricao,cep,rua,numero,bairro,complemento);
         DBSingleton.getDBSingleton().getProtocoloList().add(newProtocolo);
-        System.out.println("Solicitação concluída");
+        System.out.println("Solicitação concluída!");
+        System.out.printf("GUARDE O NÚMERO DO PROTOCOLO (ele será necessária para a consulta do status do protocolo): %d\n", newProtocolo.getNumeroProtocolo());
+        Utilitario.pularLinhas();
         menuCidadaoLogado();
     }
 
-    public void verificarStatusDoProcolo(){
+    public static void verificarStatusDoProcolo(){
 
     }
 }

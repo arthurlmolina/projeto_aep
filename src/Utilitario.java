@@ -1,30 +1,28 @@
-import javax.sound.sampled.Port;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Utilitario {
-    private Utilitario() {};
+    private Utilitario() {}
 
     public static void login(){
         Scanner scanner = new Scanner(System.in);
         int optionMenuInicial;
-        System.out.println("Menu");
+        System.out.println("\nMenu");
         System.out.println("1 - Cidadão");
         System.out.println("2 - Funcionario");
         System.out.print("Escolha uma opção: ");
         optionMenuInicial = scanner.nextInt();
         pularLinhas();
-        if (optionMenuInicial == 1){
-            Cidadao.loginCidadao();
+        switch (optionMenuInicial){
+            case 1:
+                Cidadao.loginCidadao();
+                break;
+            case 2:
+
         }
     }
 
     public static void pularLinhas(){
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" +
-                "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" +
-                "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" +
-                "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" +
-                "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n\n");
     }
 }

@@ -9,11 +9,11 @@ public class Protocolo {
     private String bairro;
     private String complemento;
     private int status;
-//   1 - aberto
-//   2 - triagem
-//   3 - em execução
-//   4 - resolvido
-//   5 - encerrado
+//   1 - Aberto
+//   2 - Em triagem
+//   3 - Em andamento
+//   4 - Resolvido
+//   5 - Reprovado
 
     //----------------------------------------------------------------------------
 
