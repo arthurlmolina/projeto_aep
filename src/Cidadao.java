@@ -194,33 +194,33 @@ public class Cidadao {
         Utilitario.pularLinhas();
         System.out.print("Digite o número de seu protocolo: ");
         int protocoloSolicitado = scanner.nextInt();
-        for(Protocolo protocolo : DBSingleton.getDBSingleton().getProtocoloList()){
-            if(protocolo.getNumeroProtocolo() == protocoloSolicitado){
-                achou = true;
-                System.out.printf("Descrição do protocolo: %s\n", protocolo.getDescricao());
-                System.out.print("Status do protocolo: ");
-                switch (protocolo.getStatus()){
-                    case 1:
-                        System.out.println("Aberto");
-                        break;
-                    case 2:
-                        System.out.println("Em triagem");
-                        break;
-                    case 3:
-                        System.out.println("Em andamento");
-                        break;
-                    case 4:
-                        System.out.println("Resolvido");
-                        break;
-                    case 5:
-                        System.out.println("Reprovado");
+        if(DBSingleton.getDBSingleton().getProtocoloList().isEmpty() == false) {
+            for (Protocolo protocolo : DBSingleton.getDBSingleton().getProtocoloList()) {
+                if (protocolo.getNumeroProtocolo() == protocoloSolicitado) {
+                    achou = true;
+                    System.out.printf("Descrição do protocolo: %s\n", protocolo.getDescricao());
+                    System.out.print("Status do protocolo: ");
+                    switch (protocolo.getStatus()) {
+                        case 1:
+                            System.out.println("Aberto");
+                            break;
+                        case 2:
+                            System.out.println("Em triagem");
+                            break;
+                        case 3:
+                            System.out.println("Em andamento");
+                            break;
+                        case 4:
+                            System.out.println("Resolvido");
+                            break;
+                        case 5:
+                            System.out.println("Reprovado");
+                    }
                 }
             }
-
-            if(achou == false){
-                System.out.println("Número de protocolo não encontrado, você será redirecionado ao menu");
-                menuCidadaoLogado();
-            }
+        }
+        if(achou == false){
+            System.out.println("Número de protocolo não encontrado, você será redirecionado ao menu");
         }
         menuCidadaoLogado();
     }
