@@ -19,6 +19,11 @@ public class Utilitario {
                 break;
             case 2:
 
+                break;
+            default:
+                System.out.println("Opção inválida, tente novamente");
+                login();
+                break;
         }
     }
 

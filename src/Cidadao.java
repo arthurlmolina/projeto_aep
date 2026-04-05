@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Cidadao {
     private String nome;
@@ -53,6 +54,9 @@ public class Cidadao {
             logarCidadao();
         } else if (optionMenuCidadao == 3) {
             Utilitario.login();
+        } else{
+            System.out.println("\nOpção inválida, tente novamente");
+            loginCidadao();
         }
     }
 
@@ -127,7 +131,7 @@ public class Cidadao {
                 Utilitario.login();
                 break;
             default:
-                System.out.println("Opção inválida, tente novamente");
+                System.out.println("\nOpção inválida, tente novamente");
                 menuCidadaoLogado();
                 break;
         }
@@ -218,6 +222,7 @@ public class Cidadao {
                 menuCidadaoLogado();
             }
         }
+        menuCidadaoLogado();
     }
 }
 
