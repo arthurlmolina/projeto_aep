@@ -7,7 +7,7 @@ public class Utilitario {
     public static void login(){
         Scanner scanner = new Scanner(System.in);
         int optionMenuInicial;
-        System.out.println("1 - Cidadão");
+        System.out.println("\n1 - Cidadão");
         System.out.println("2 - Funcionario");
         System.out.print("Escolha uma opção: ");
         optionMenuInicial = scanner.nextInt();
@@ -17,7 +17,7 @@ public class Utilitario {
                 Cidadao.loginCidadao();
                 break;
             case 2:
-
+                Funcionario.loginFuncionario();
                 break;
             default:
                 System.out.println("Opção inválida, tente novamente");

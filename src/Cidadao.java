@@ -151,7 +151,7 @@ public class Cidadao {
         String complemento;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Tipos de solicitações");
-        System.out.println("1 - Poda de arvore");
+        System.out.println("1 - Poda de ârvore");
         System.out.println("2 - Asfaltamento na rua");
         System.out.println("3 - Conserto de iluminação pública");
         System.out.println("4 - Limpeza");
