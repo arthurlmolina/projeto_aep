@@ -7,7 +7,6 @@ public class Utilitario {
     public static void login(){
         Scanner scanner = new Scanner(System.in);
         int optionMenuInicial;
-        System.out.println("\nMenu");
         System.out.println("1 - Cidadão");
         System.out.println("2 - Funcionario");
         System.out.print("Escolha uma opção: ");
